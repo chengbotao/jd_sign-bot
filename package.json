@@ -1,0 +1,17 @@
+{
+  "name": "jd_sign_bot",
+  "version": "1.0.0",
+  "description": "京东自动签到",
+  "main": "JD_DailyBonus.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "chengbotao",
+  "license": "MIT",
+  "dependencies": {
+    "download": "^8.0.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5"
+  }
+}

@@ -1,0 +1,27 @@
+name: Github JD-SIGN BOT
+
+on:
+    push:
+        branches:
+            - master
+    schedule:
+        - cron: '0 22,10 * * *'
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout codes
+              uses: actions/checkout@v2
+            - name: Use Node.js
+              uses: actions/setup-node@v1
+              with:
+                node-version: '12.x'
+            - name: Run app
+              run: npm install
+            - run: node app.js
+              env:
+                CORP_ID: ${{ secrets.CORP_ID }}
+                AGENT_ID: ${{ secrets.AGENT_ID }}
+                CORP_SECRET: ${{ secrets.CORP_SECRET }}
+                JD_COOKIE: ${{ secrets.JD_COOKIE }}
