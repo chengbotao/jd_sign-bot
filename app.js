@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 05:08:48
+ * @LastEditTime: 2020-12-06 05:10:16
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -41,12 +41,12 @@ async function getAccessToken() { // 获取企业微信自建应用 access_token
     qs: {
       corpid: corpid,
       corpsecret: corpsecret
-    }
+    },
+    json: true
   }
   let res = await rp(options);
-  let tempRes = JSON.parse(res);
-  if (tempRes.errcode != 0) return;
-  return tempRes.access_token;
+  if (res.errcode != 0) return;
+  return res.access_token;
 }
 
 async function sendNotify(name, msg, accessToken) {
@@ -71,14 +71,11 @@ async function sendNotify(name, msg, accessToken) {
     json: true
   }
   let res = await rp(options);
-  console.log("企业微信推送结果",res, res.errcode);
-  let tempRes = JSON.parse(res.replace(/\'/g,'\"'));
-  console.log("企业微信推送结果",JSON.stringify(tempRes));
-  // // 企业微信自建应用推送 access_token 失效，重新发送
-  // if (tempRes.errcode === 40014) {
-  //   console.log("重新发送")
-  //   start(name);
-  // }
+  // 企业微信自建应用推送 access_token 失效，重新发送
+  if (res.errcode === 40014) {
+    console.log("重新发送")
+    start(name);
+  }
 }
 
 async function sendRequest(userName, jdCookie, accessToken) {
