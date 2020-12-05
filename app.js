@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 04:57:10
+ * @LastEditTime: 2020-12-06 05:02:52
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -66,13 +66,14 @@ async function sendNotify(name, msg, accessToken) {
         "content": `${msg}`
       },
       "safe": 0,
-      "enable_duplicate_check": 1
+      "enable_duplicate_check": 0
     },
     json: true
   }
   let res = await rp(options);
   console.log("企业微信推送结果",res);
-  // let tempRes = JSON.parse(res);
+  let tempRes = JSON.parse(res.replace(/\'/g,"\\\""));
+  console.log("企业微信推送结果",JSON.stringify(tempRes));
   // // 企业微信自建应用推送 access_token 失效，重新发送
   // if (tempRes.errcode === 40014) {
   //   console.log("重新发送")
