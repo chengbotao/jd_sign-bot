@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 05:06:35
+ * @LastEditTime: 2020-12-06 05:08:48
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -71,7 +71,7 @@ async function sendNotify(name, msg, accessToken) {
     json: true
   }
   let res = await rp(options);
-  console.log("企业微信推送结果",res, res.replace(/\'/g,'\"'));
+  console.log("企业微信推送结果",res, res.errcode);
   let tempRes = JSON.parse(res.replace(/\'/g,'\"'));
   console.log("企业微信推送结果",JSON.stringify(tempRes));
   // // 企业微信自建应用推送 access_token 失效，重新发送
