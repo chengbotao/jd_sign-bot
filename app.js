@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 12:40:32
+ * @LastEditTime: 2020-12-06 12:46:12
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -92,10 +92,10 @@ async function sendRequest(userName, jdCookie, accessToken) {
   await changeFile(jdCookie);
   console.log('替换变量完毕')
   // 执行
-  await exec("node JD_DailyBonus.js >> result.txt");
+  await exec(`node JD_DailyBonus.js >> ${userName}-result.txt`);
   console.log('执行完毕')
 
-  const path = "./result.txt";
+  const path = `./${userName}-result.txt`;
   let content = "";
   if (await fs.existsSync(path)) {
     content = await fs.readFileSync(path, "utf8");
