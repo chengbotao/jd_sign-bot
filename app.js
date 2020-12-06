@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 12:46:12
+ * @LastEditTime: 2020-12-06 12:58:52
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -126,7 +126,7 @@ async function start(params = null) {
       let num = userNames.findIndex(item => item === params);
       tempArr = userNames.slice(num)
     }
-    tempArr.forEach(async (item) => {
+    tempArr.forEach((item) => {
       await sendRequest(item, JDUsers[item], access_token)
     })
   } else {
