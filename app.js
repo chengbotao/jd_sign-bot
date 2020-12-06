@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 11:49:31
+ * @LastEditTime: 2020-12-06 11:56:32
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -51,7 +51,7 @@ async function getAccessToken() { // 获取企业微信自建应用 access_token
 }
 
 async function sendNotify(name, msg, accessToken) {
-  console.log("成员名字",name);
+  console.log("成员名字", name);
   const options = {
     method: 'POST',
     uri: `https://qyapi.weixin.qq.com/cgi-bin/message/send`,
@@ -110,7 +110,7 @@ async function sendRequest(userName, jdCookie, accessToken) {
   let res2 = t2 ? "\n😂Cookie失效😂" : ''
   let notifyContent = `【签到概览】:${res}${res2}`;
 
-  console.log("京东签到信息",notifyContent);
+  console.log("京东签到信息", notifyContent);
 
   await sendNotify(userName, notifyContent, accessToken);
 }
@@ -126,8 +126,8 @@ async function start(params = null) {
       let num = userNames.findIndex(item => item === params);
       tempArr = userNames.slice(num)
     }
-    tempArr.forEach(item => {
-      sendRequest(item, JDUsers[item], access_token)
+    tempArr.forEach(async (item) => {
+      await sendRequest(item, JDUsers[item], access_token)
     })
   } else {
     console.log("获取 access_token 失败");
