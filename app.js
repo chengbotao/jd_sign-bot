@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 12:02:33
+ * @LastEditTime: 2020-12-06 12:07:13
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -20,7 +20,7 @@ const corpid = process.env.CORP_ID, // 企业微信ID
 // 京东： [企业微信员工ID ： 京东的登录cookie]
 const JDUsers = {
   // "ChengBoTao": process.env.JD_COOKIE,
-  "YiMeiXiaoXiaoDeChengXuYuan": process.env.JD_COOKIE_2
+  "MaXiaoTian": process.env.JD_COOKIE_2
 }
 
 async function downFile() {
