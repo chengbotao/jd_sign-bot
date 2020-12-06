@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 05:10:16
+ * @LastEditTime: 2020-12-06 11:49:31
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -51,6 +51,7 @@ async function getAccessToken() { // 获取企业微信自建应用 access_token
 }
 
 async function sendNotify(name, msg, accessToken) {
+  console.log("成员名字",name);
   const options = {
     method: 'POST',
     uri: `https://qyapi.weixin.qq.com/cgi-bin/message/send`,
@@ -58,13 +59,13 @@ async function sendNotify(name, msg, accessToken) {
       access_token: accessToken // -> uri + '?access_token=xxxxx%20xxxxx'
     },
     body: {
-      "touser": `${name}`,
+      "touser": name,
       // "toparty" : "PartyID1|PartyID2",
       //  "totag" : "TagID1 | TagID2",
       "msgtype": "text",
       "agentid": agentid,
       "text": {
-        "content": `${msg}`
+        "content": msg
       },
       "safe": 0,
       "enable_duplicate_check": 0
@@ -108,6 +109,8 @@ async function sendRequest(userName, jdCookie, accessToken) {
 
   let res2 = t2 ? "\n😂Cookie失效😂" : ''
   let notifyContent = `【签到概览】:${res}${res2}`;
+
+  console.log("京东签到信息",notifyContent);
 
   await sendNotify(userName, notifyContent, accessToken);
 }
