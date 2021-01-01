@@ -3,7 +3,7 @@
  * @Author: Chengbotao
  * @Date: 2020-11-14 11:17:44
  * @LastEditors: Chengbotao
- * @LastEditTime: 2020-12-06 13:03:31
+ * @LastEditTime: 2021-01-01 22:19:50
  * @FilePath: \jd_sign_bot\app.js
  */
 
@@ -105,10 +105,9 @@ async function sendRequest(userName, jdCookie, accessToken) {
   let res = t ? t[1].replace(/\n/, '') : '🍔'
 
   let reg = /Cookie失效/ig
-  let t2 = reg.test(content);
+  let cookieVal = content.split("\n").filter(item=>reg.test(item))
 
-  let res2 = t2 ? "\n😂Cookie失效😂" : ''
-  let notifyContent = `【签到概览】:${res}${res2}`;
+  let notifyContent = `【签到概览】:${res}${cookieVal.join("\n")}`;
 
   console.log("京东签到信息", notifyContent);
 
