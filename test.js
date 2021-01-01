@@ -2,7 +2,7 @@
  * @Author: Chengbotao
  * @Description: 
  * @Date: 2021-01-01 21:44:28
- * @LastEditTime: 2021-01-01 22:06:37
+ * @LastEditTime: 2021-01-01 22:14:12
  * @LastEditors: Chengbotao
  * @FilePath: \jd_sign_bot\test.js
  */
@@ -106,7 +106,7 @@ async function sendRequest(userName, jdCookie, accessToken) {
   let res = t ? t[1].replace(/\n/, '') : '🍔'
 
   let reg = /Cookie失效/ig
-  let cookieVal = res.split("\n").filter(item=>reg.test(item))
+  let cookieVal = content.split("\n").filter(item=>reg.test(item))
 
   let notifyContent = `【签到概览】:${res}${cookieVal.join("\n")}`;
 
