@@ -2,9 +2,9 @@
  * @Author: Chengbotao
  * @Description: 
  * @Date: 2021-01-01 21:44:28
- * @LastEditTime: 2021-01-01 22:14:12
+ * @LastEditTime: 2021-04-13 13:43:06
  * @LastEditors: Chengbotao
- * @FilePath: \jd_sign_bot\test.js
+ * @FilePath: \jd_sign-bot\test.js
  */
 const exec = require('child_process').execSync;
 const fs = require('fs');
@@ -18,8 +18,9 @@ const corpid = process.env.CORP_ID, // 企业微信ID
 
 // 京东： [企业微信员工ID ： 京东的登录cookie]
 const JDUsers = {
-//   "ChengBoTao": process.env.JD_COOKIE,
-  "MaXiaoTian": process.env.JD_COOKIE_2
+  "ChengBoTao": process.env.JD_COOKIE,
+  // "MaXiaoTian": process.env.JD_COOKIE_2,
+  // "HuangMengXin": process.env.HUANGMX
 }
 
 async function downFile() {
@@ -108,7 +109,7 @@ async function sendRequest(userName, jdCookie, accessToken) {
   let reg = /Cookie失效/ig
   let cookieVal = content.split("\n").filter(item=>reg.test(item))
 
-  let notifyContent = `【签到概览】:${res}${cookieVal.join("\n")}`;
+  let notifyContent = `❣❣❣❣❣ \n【签到概览】:${res}${cookieVal[0] || '❣❣❣❣❣❣'}`;
 
   console.log("京东签到信息", notifyContent);
 

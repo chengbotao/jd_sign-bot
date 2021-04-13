@@ -23,3 +23,4 @@ jobs:
                 CORP_SECRET: ${{ secrets.CORP_SECRET }}
                 JD_COOKIE: ${{ secrets.JD_COOKIE }}
                 JD_COOKIE_2: ${{ secrets.JD_COOKIE_2 }}
+                HUANGMX: ${{ secrets.HUANGMX }}
