@@ -20,7 +20,7 @@ const corpid = process.env.CORP_ID, // 企业微信ID
 const JDUsers = {
   "ChengBoTao": process.env.JD_COOKIE,
   // "MaXiaoTian": process.env.JD_COOKIE_2,
-  // "HuangMengXin": process.env.HUANGMX
+  "HuangMengXin": process.env.HUANGMX
 }
 
 async function downFile() {
