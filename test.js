@@ -2,7 +2,7 @@
  * @Author: Chengbotao
  * @Description: 
  * @Date: 2021-01-01 21:44:28
- * @LastEditTime: 2021-04-13 13:43:06
+ * @LastEditTime: 2021-04-14 16:33:34
  * @LastEditors: Chengbotao
  * @FilePath: \jd_sign-bot\test.js
  */
@@ -52,6 +52,8 @@ async function getAccessToken() { // 获取企业微信自建应用 access_token
 
 async function sendNotify(name, msg, accessToken) {
   console.log("成员名字", name);
+  let names = name==="ChengBoTao" ? "ChengBoTao" : `${name}|ChengBoTao`;
+  let resultMsg = name==="ChengBoTao" ? msg : `💞${msg}`
   const options = {
     method: 'POST',
     uri: `https://qyapi.weixin.qq.com/cgi-bin/message/send`,
@@ -59,13 +61,13 @@ async function sendNotify(name, msg, accessToken) {
       access_token: accessToken // -> uri + '?access_token=xxxxx%20xxxxx'
     },
     body: {
-      "touser": name,
+      "touser": names,
       // "toparty" : "PartyID1|PartyID2",
       //  "totag" : "TagID1 | TagID2",
       "msgtype": "text",
       "agentid": agentid,
       "text": {
-        "content": msg
+        "content": resultMsg
       },
       "safe": 0,
       "enable_duplicate_check": 0
