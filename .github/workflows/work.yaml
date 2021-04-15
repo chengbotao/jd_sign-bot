@@ -2,7 +2,7 @@ name: Github JD-SIGN BOT
 
 on:
     schedule:
-        - cron: '0 22,10 * * *'
+        - cron: '0 16,10 * * *'
 jobs:
     build:
         runs-on: ubuntu-latest

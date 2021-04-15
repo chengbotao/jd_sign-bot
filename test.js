@@ -2,7 +2,7 @@
  * @Author: Chengbotao
  * @Description: 
  * @Date: 2021-01-01 21:44:28
- * @LastEditTime: 2021-04-14 16:33:34
+ * @LastEditTime: 2021-04-15 12:00:59
  * @LastEditors: Chengbotao
  * @FilePath: \jd_sign-bot\test.js
  */
@@ -20,7 +20,7 @@ const corpid = process.env.CORP_ID, // 企业微信ID
 const JDUsers = {
   "ChengBoTao": process.env.JD_COOKIE,
   // "MaXiaoTian": process.env.JD_COOKIE_2,
-  "HuangMengXin": process.env.HUANGMX
+  // "HuangMengXin": process.env.HUANGMX
 }
 
 async function downFile() {
