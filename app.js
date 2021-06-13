@@ -20,8 +20,8 @@ const corpid = process.env.CORP_ID, // 企业微信ID
 // 京东： [企业微信员工ID ： 京东的登录cookie]
 const JDUsers = {
   "ChengBoTao": process.env.JD_COOKIE,
-  "MaXiaoTian": process.env.JD_COOKIE_2,
-  "HuangMengXin": process.env.HUANGMX
+//   "MaXiaoTian": process.env.JD_COOKIE_2,
+//   "HuangMengXin": process.env.HUANGMX
 }
 
 async function downFile() {
